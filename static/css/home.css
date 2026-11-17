@@ -52,3 +52,14 @@
 .contact-feature{background:#f5f9f8}.contact-feature-grid{display:grid;grid-template-columns:1fr .9fr;gap:10%;align-items:center}.contact-feature .section-desc{margin:17px 0 22px}.contact-feature-actions{display:flex;flex-wrap:wrap;gap:10px}.contact-feature-note{font-size:11px;color:#778a91;line-height:1.8;margin:22px 0 0}.contact-feature-note a{color:#087f83;text-decoration:underline}.contact-feature-panel{background:#fff;padding:31px;border-radius:20px;box-shadow:0 20px 60px #10263f12;border:1px solid #e3eceb}.contact-feature-panel>a{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:20px 4px;border-bottom:1px solid #e6efed;color:#087f83}.contact-feature-panel>a:last-child{border-bottom:0}.contact-feature-panel b{display:block;color:#122b42;font-size:15px;margin-bottom:7px}.contact-feature-panel small{display:block;color:#72828a;font-size:12px;line-height:1.6}.contact-feature-panel>a:hover b{color:#087f83}
 @media(max-width:850px){.quick-find-inner,.contact-feature-grid{grid-template-columns:1fr;gap:19px}.capability-grid{grid-template-columns:1fr}.contact-feature-panel{margin-top:4px}}@media(max-width:520px){.quick-search{flex-direction:column}.quick-search .btn{width:100%}.quick-find{padding:24px 0}.capability-card{padding:26px}.contact-feature-panel{padding:19px}.contact-feature-actions .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.capability-card,.contact-feature-panel{animation:none!important;transition:none!important}}
+
+/* Refined corporate typography */
+body{line-height:1.6}
+h1,h2,h3,h4{text-wrap:balance}
+.hero h1{font-weight:750!important;letter-spacing:-.042em!important;line-height:1.13!important}
+.section-title{font-weight:750!important;letter-spacing:-.03em!important;line-height:1.25!important}
+.hero-sub,.section-desc,.journey-card p,.service p,.step p,.bridge-copy p{line-height:1.75}
+.eyebrow{letter-spacing:.12em!important;font-weight:700!important}
+.service h3,.journey-card h3{letter-spacing:-.02em!important}
+.btn{font-weight:700!important}
+@media(max-width:700px){.hero h1{font-size:clamp(36px,9vw,50px)!important;letter-spacing:-.035em!important}}

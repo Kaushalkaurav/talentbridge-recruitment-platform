@@ -29,7 +29,7 @@ MAX_DESCRIPTION=12000
 def render(request, template, status=200,**data):
     user=session_user(request)
     token=request.state.csrf if hasattr(request.state,'csrf') else ''
-    return HTMLResponse(templates.get_template(template).render(request=request,user=user,csrf=token,**data),status_code=status)
+    return HTMLResponse(templates.get_template(template).render(request=request,user=user,csrf=token,preview_mode=os.environ.get('TALENTBRIDGE_PREVIEW_ONLY')=='1',**data),status_code=status)
 def go(url):return RedirectResponse(url,status_code=303)
 def token_hash(v):return hashlib.sha256(v.encode()).hexdigest()
 def session_user(request):
@@ -76,6 +76,8 @@ def startup():init_db()
 
 @app.middleware('http')
 async def protect(request,call_next):
+    if os.environ.get('TALENTBRIDGE_PREVIEW_ONLY')=='1' and request.method not in ('GET','HEAD','OPTIONS'):
+        return PlainTextResponse('Talent Bridge is in preview mode. Registrations, enquiries and uploads are temporarily disabled until permanent secure storage is configured.',status_code=503,headers={'Cache-Control':'no-store'})
     request.state.user=None;request.state.csrf=None
     sid=request.cookies.get('tb_session','')
     if sid:
